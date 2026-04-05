@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>❤️ Heart Disease Prediction</h1>
+
+    <form action="/predict" method="POST">
+
+        <div class="form-group">
+            <label>Age</label>
+            <input type="number" name="age" required>
+        </div>
+
+        <div class="form-group">
+            <label>Sex (1 = Male, 0 = Female)</label>
+            <input type="number" name="sex" required>
+        </div>
+
+        <div class="form-group">
+            <label>Chest Pain Type (0–3)</label>
+            <input type="number" name="cp" required>
+        </div>
+
+        <div class="form-group">
+            <label>Resting Blood Pressure</label>
+            <input type="number" name="trestbps" required>
+        </div>
+
+        <div class="form-group">
+            <label>Cholesterol</label>
+            <input type="number" name="chol" required>
+        </div>
+
+        <div class="form-group">
+            <label>Fasting Blood Sugar (1 = True, 0 = False)</label>
+            <input type="number" name="fbs" required>
+        </div>
+
+        <div class="form-group">
+            <label>Rest ECG (0–2)</label>
+            <input type="number" name="restecg" required>
+        </div>
+
+        <div class="form-group">
+            <label>Max Heart Rate</label>
+            <input type="number" name="thalach" required>
+        </div>
+
+        <div class="form-group">
+            <label>Exercise Induced Angina (1 = Yes, 0 = No)</label>
+            <input type="number" name="exang" required>
+        </div>
+
+        <div class="form-group">
+            <label>Oldpeak</label>
+            <input type="number" step="any" name="oldpeak" required>
+        </div>
+
+        <div class="form-group">
+            <label>Slope (0–2)</label>
+            <input type="number" name="slope" required>
+        </div>
+
+        <div class="form-group">
+            <label>CA (0–3)</label>
+            <input type="number" name="ca" required>
+        </div>
+
+        <div class="form-group">
+            <label>Thal (1, 3, 6, 7)</label>
+            <input type="number" name="thal" required>
+        </div>
+
+        <button type="submit">Predict</button>
+
+    </form>
+
+    {% if result %}
+        <div class="result">
+            <h2>{{ result }}</h2>
+        </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
